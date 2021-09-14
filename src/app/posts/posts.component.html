@@ -1,0 +1,20 @@
+<div class="row">
+  <ng-container *ngFor="let post of posts">
+    <div class="col-11 mt-3 post">
+      <img src="../../assets/img/defaultPersonImg.png" class="rounded-circle" width="70" height="70" />
+      <div class="d-inline-block pl-4 text-white">
+        <h5 class="m-0 p-0">{{post.title}}</h5>
+        <h6 class="p-0 m-0">{{getUserName(post.userId)}}</h6>
+        <small>03-11-2021</small>
+      </div>
+      <hr />
+      <p class="lead" style="word-wrap: anywhere;">
+        {{post.body}}
+      </p>
+      <br />
+      <hr />
+      <a [routerLink]="['/post',post.id]" width="98%">
+        <i class="far fa-hand-point-right"></i> &#160; Show Post Details</a>
+    </div>
+  </ng-container>
+</div>

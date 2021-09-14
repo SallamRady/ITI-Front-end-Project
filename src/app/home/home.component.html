@@ -1,0 +1,76 @@
+<div class="row home">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12">
+        <h2>Users you may know.</h2>
+        <hr />
+      </div>
+    </div>
+    <!------------------->
+    <div class="top-content">
+      <div class="container-fluid">
+        <div id="multi-carousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner row w-100 mx-auto" role="listbox">
+
+            <ng-container *ngFor="let user of users|slice:0:10;let i=index">
+              <div [class.active]="i==0" class="carousel-item col-11 col-sm-5 col-md-3">
+                <img src="../../assets/img/defaultPersonImg.png" width="98%" class="img-fluid mx-auto d-block"
+                  alt="img3">
+                <br />
+                <h5>{{user.username}}</h5>
+                <a [routerLink]="['user',user.id]" width="98%" type="button" class="btn btn-warning text-center">Show
+                  User Profile</a>
+              </div>
+            </ng-container>
+
+          </div>
+
+          <a class="carousel-control-prev" href="#multi-carousel" role="button" data-slide="prev">
+            <i class="fas fa-arrow-circle-left text-dark" style="font-size: 40px;"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#multi-carousel" role="button" data-slide="next">
+            <i class="fas fa-arrow-circle-right text-dark" style="font-size: 40px;"></i>
+            <span class="sr-only">Next</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+    <!------------------->
+    <hr />
+    <a routerLink="/users" class="allUsers">
+      <i class="fas fa-users"></i>&#160; See all Users</a>
+    <hr />
+  </div>
+  <div class="col-12">
+    <div class="row">
+      <!--Posts-->
+      <ng-container *ngFor="let post of posts|slice:0:10;let i=index">
+        <div class="col-11 homePost">
+          <img src="../../assets/img/defaultPersonImg.png" class="rounded-circle" width="70" height="70" />
+          <div class="d-inline-block pl-4 text-white">
+            <h5 class="m-0 p-0">{{post.title}}</h5>
+            <h6 class="p-0 m-0">{{getUserName(post.userId)}}</h6>
+            <small>03-11-2021</small>
+          </div>
+          <hr />
+          <p class="lead" style="word-wrap: anywhere;">
+            {{post.body}}
+          </p>
+          <br />
+          <hr />
+          <a [routerLink]="['post',post.id]" width="98%">
+            <i class="far fa-hand-point-right"></i> &#160; Show Post Details</a>
+        </div>
+      </ng-container>
+
+
+      <br />
+      <hr />
+      <a routerLink="/posts" class="allUsers">
+        <i class="fas fa-newspaper"></i>&#160; See all Posts</a>
+      <hr />
+    </div>
+  </div>
+</div>

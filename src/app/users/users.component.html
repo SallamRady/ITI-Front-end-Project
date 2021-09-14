@@ -1,0 +1,15 @@
+<div class="row">
+  <ng-container *ngFor="let user of users;let i=index">
+    <div class="col-11 m-auto col-md-4 p-2">
+      <div class="card">
+        <img class="card-img-top" src="../../assets/img/defaultPersonImg.png" alt="Card image" style="width:100%">
+        <div class="card-body">
+          <h4 class="card-title">{{user.name}}</h4>
+          <p class="card-text">{{ user.company.name }} - {{ user.company.catchPhrase}}</p>
+          <a [routerLink]="['/user',user.id]" class="btn btn-primary">See Profile</a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

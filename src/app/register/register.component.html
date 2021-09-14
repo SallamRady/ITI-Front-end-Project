@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-11 col-md-8 m-auto">
+    <h3 class="registerHeader">Register Form</h3>
+    <form [formGroup]="registerForm" action="#" method="POST">
+      <div class="form-group">
+        <label for="name">
+          <i class="fas fa-file-signature"></i>&#160;
+          Name
+        </label>
+        <input [class.is-invalid]="name?.invalid && name?.touched" formControlName="name" type="text" name="name"
+          class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter your name">
+        <small id="nameHelp" class="form-text text-muted">We'll use it to deal with u.</small>
+        <ng-container *ngIf="name?.errors">
+          <small class="text-danger" [class.d-none]="!name?.errors?.required || name?.untouched">
+            name is required.
+          </small>
+          <small class="text-danger" [class.d-none]="!name?.errors?.minlength || name?.untouched">
+            name must have 3 or more char.
+          </small>
+        </ng-container>
+      </div>
+      <div class="form-group">
+        <label for="email">
+          <i class="far fa-envelope"></i>&#160;
+          Email address
+        </label>
+        <input [class.is-invalid]="email?.invalid && email?.touched" type="email" formControlName="email" name="email"
+          class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <ng-container *ngIf="email?.errors">
+          <small class="text-danger" [class.d-none]="!email?.errors?.required || email?.untouched">
+            email is required.
+          </small>
+          <small class="text-danger" [class.d-none]="!email?.errors?.email || email?.untouched">
+            email is invalid.
+          </small>
+        </ng-container>
+      </div>
+      <div class="form-group">
+        <label for="password"><i class="fas fa-unlock-alt"></i>&#160;Password</label>
+        <input [class.is-invalid]="password?.invalid && password?.touched" formControlName="password" type="password"
+          name="password" class="form-control" id="password" placeholder="Password">
+        <ng-container *ngIf="password?.errors">
+          <small class="text-danger" [class.d-none]="!password?.errors?.required || password?.untouched">
+            password is required.
+          </small>
+          <small class="text-danger" [class.d-none]="!password?.errors?.minlength || password?.untouched">
+            password must have 8 or more char.
+          </small>
+        </ng-container>
+      </div>
+      <div class="form-group">
+        <label for="comfirmpassword"><i class="fas fa-unlock-alt"></i>&#160;comfirm Password</label>
+        <input [class.is-invalid]="comfirmpassword?.invalid && comfirmpassword?.touched"
+          formControlName="comfirmpassword" type="password" name="comfirmpassword" class="form-control"
+          id="comfirmpassword" placeholder="comfirm password">
+        <ng-container *ngIf="comfirmpassword?.errors">
+          <small class="text-danger" [class.d-none]="!comfirmpassword?.errors?.required || comfirmpassword?.untouched">
+            comfirm password is required.
+          </small>
+        </ng-container>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+</div>

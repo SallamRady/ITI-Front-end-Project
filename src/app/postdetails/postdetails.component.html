@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-11 mt-3">
+    <img src="../../assets/img/defaultPersonImg.png" class="rounded-circle" width="70" height="70" />
+    <div class="d-inline-block pl-4 text-dark">
+      <h5 class="m-0 p-0">{{getPostById(id)[0].title}}</h5>
+      <h6 class="p-0 m-0">{{getUserName(getPostById(id)[0].userId)}}</h6>
+      <small>03-11-2021</small>
+    </div>
+    <hr />
+    <div class="postBody">
+      <h6 class="text-warning"><i class="fas fa-comment-alt"></i>&#160;Post body</h6>
+      <p>{{getPostById(id)[0].body}}</p>
+      <h6 class="text-warning"><i class="fas fa-comments"></i> &#160;Post Comments</h6>
+      <ng-container *ngFor="let comment of getPostComments(id);">
+        <small class="text-primary"><i class="far fa-user"></i>&#160;{{comment.email}}</small><br />
+        <small class="text-dark">
+          <span class="text-primary"><i class="fas fa-comment-dots"></i>&#160;Comment : &#160;</span>
+          {{comment.body}}
+        </small>
+        <br />
+        <br />
+      </ng-container>
+    </div>
+  </div>
+</div>
